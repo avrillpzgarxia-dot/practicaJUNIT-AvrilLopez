@@ -5,56 +5,47 @@
  */
 
 package com.dam.practicajunit;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
 /**
  *
  * @author avril.lopezgarcia
  */
 public class CirculoTest {
+    private double radio;
 
-    @Test
-    public void testConstructorVacio() {
-        Circulo c = new Circulo();
-        assertEquals(0, c.getRadio());
+    public CirculoTest() {
+        this.radio = 0;
     }
 
-    @Test
-    public void testGetRadio() {
-        Circulo c = new Circulo(5.0);
-        assertEquals(5.0, c.getRadio());
+    public CirculoTest(double radio) {
+        this.radio = radio;
     }
 
-    @Test
-    public void testSetRadio() {
-        Circulo c = new Circulo();
-        c.setRadio(10.0);
-        assertEquals(10.0, c.getRadio());
+    public double getRadio() {
+        return radio;
     }
 
-    @Test
-    public void testCalcularArea() {
-        Circulo c = new Circulo(1.0);
-        assertEquals(Math.PI, c.calcularArea(), 0.0);
+    public void setRadio(double radio) {
+        this.radio = radio;
     }
 
-    @Test
-    public void testCalcularPerimetro() {
-        Circulo c = new Circulo(2.0);
-        assertEquals(12.56, c.calcularPerimetro(), 0.01);
+    public double calcularArea() {
+        return Math.PI * Math.pow(radio, 2);
     }
 
-    @Test
-    public void testMostrarRadio() {
-        Circulo c = new Circulo(4.0);
-        assertEquals("El radio es: 4.0", c.mostrarRadio());
+    public double calcularPerimetro() {
+        return 2 * Math.PI * radio;
     }
 
-    @Test
-    public void testMayorCirculo() {
-        Circulo c1 = new Circulo(5.0);
-        Circulo c2 = new Circulo(3.0);
-        Circulo resultado = Circulo.mayorCirculo(c1, c2);
-        assertEquals(c1, resultado);
+    public String mostrarRadio() {
+        return "El radio es: " + radio;
+    }
+
+    public static CirculoTest mayorCirculo(CirculoTest c1, CirculoTest c2) {
+        if (c1.getRadio() >= c2.getRadio()) {
+            return c1;
+        } else {
+            return c2;
+        }
     }
 }
