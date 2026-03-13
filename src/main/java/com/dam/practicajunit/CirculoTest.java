@@ -6,46 +6,55 @@
 
 package com.dam.practicajunit;
 
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 /**
  *
  * @author avril.lopezgarcia
  */
 public class CirculoTest {
-    private double radio;
 
-    public CirculoTest() {
-        this.radio = 0;
+    @Test
+    void testConstructorVacio() {
+        Circulo c = new Circulo();
+        assertEquals(0.0, c.getRadio());
     }
 
-    public CirculoTest(double radio) {
-        this.radio = radio;
+    @Test
+    void testGetRadio() {
+        Circulo c = new Circulo(5.5);
+        assertEquals(5.5, c.getRadio());
     }
 
-    public double getRadio() {
-        return radio;
+    @Test
+    void testSetRadio() {
+        Circulo c = new Circulo();
+        c.setRadio(3.3);
+        assertEquals(3.3, c.getRadio());
     }
 
-    public void setRadio(double radio) {
-        this.radio = radio;
+    @Test
+    void testCalcularArea() {
+        Circulo c = new Circulo(2.0);
+        assertEquals(Math.PI * 4.0, c.calcularArea(), 0.0);
     }
 
-    public double calcularArea() {
-        return Math.PI * Math.pow(radio, 2);
+    @Test
+    void testCalcularPerimetro() {
+        Circulo c = new Circulo(2.0);
+        assertEquals(2 * Math.PI * 2.0, c.calcularPerimetro(), 0.01);
     }
 
-    public double calcularPerimetro() {
-        return 2 * Math.PI * radio;
+    @Test
+    void testMostrarRadio() {
+        Circulo c = new Circulo(7.0);
+        assertEquals("Radio: 7.0", c.mostrarRadio());
     }
 
-    public String mostrarRadio() {
-        return "El radio es: " + radio;
-    }
-
-    public static CirculoTest mayorCirculo(CirculoTest c1, CirculoTest c2) {
-        if (c1.getRadio() >= c2.getRadio()) {
-            return c1;
-        } else {
-            return c2;
-        }
+    @Test
+    void testMayorCirculo() {
+        Circulo c1 = new Circulo(3.0);
+        Circulo c2 = new Circulo(5.0);
+        assertEquals(c2, Circulo.mayorCirculo(c1, c2));
     }
 }

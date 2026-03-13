@@ -9,93 +9,37 @@ package com.dam.practicajunit;
  * @author DANA
  */
 public class Circulo {
-
-    /**
-     * @param radio El valor del radio del círculo
-     */
     private double radio;
 
-    /**
-     * Constructor vacio Inicializa a 0 el radio.
-     */
     public Circulo() {
+        this.radio = 0.0;
     }
 
-    /**
-     * Constructor
-     *
-     * @param radio Recibe el radio del nuevo objeto
-     */
     public Circulo(double radio) {
         this.radio = radio;
     }
 
-    /**
-     * Devuelve el área del círculo.
-     *
-     * @return double, el valor del área.
-     */
-    public double calcularArea() {
-        return Math.PI * Math.pow(radio, 2);
-    }
-
-    /**
-     * Calcula y devuelve el valor del perímetro del círculo.
-     *
-     * @return double, El valor del perímetro
-     */
-    public double calcularPerimetro() {
-        return Math.PI * radio * 2;
-    }
-
-    /**
-     * @return radio double, devuelve el valor del radio
-     */
     public double getRadio() {
         return radio;
     }
 
-    /**
-     * Introduce un nuevo valor para el radio.
-     *
-     * @param radio double, el valor del radio nuevo.
-     */
     public void setRadio(double radio) {
         this.radio = radio;
     }
 
-    /**
-     * metodo que mostrará el nombre de la clase del objeto
-     */
-    public void mostrarNombre() {
-        System.out.println("Datos del " + this.getClass().getSimpleName());
-        System.out.println("------------------");
+    public double calcularArea() {
+        return Math.PI * radio * radio;
     }
 
-    /**
-     *
-     * @param circulito, objeto de tipo Circulo
-     * @return Devuelve el radio del objeto pasado
-     */
-    public static double mostrarRadio(Circulo circulito) {
-        return circulito.radio;
+    public double calcularPerimetro() {
+        return 2 * Math.PI * radio;
     }
-<<<<<<< HEAD
-=======
-     /**
-     * 
-     * @param circulo1,  objeto de tipo Circulo
-     * @param circulo2,  objeto de tipo Circulo
-     * @return devuelve el objeto de tipo Circulo  que sea mayor
-     */
-    public static Circulo mayorCirculo(Circulo circulo1, Circulo circulo2) {
-        if (circulo1.radio >= circulo2.radio) {
-            return circulo1;
-        } else {
-            return circulo2;
-        }
-    }
->>>>>>> template/feature/circuloMayor
 
-    
+    public String mostrarRadio() {
+        return "Radio: " + radio;
+    }
+
+    public static Circulo mayorCirculo(Circulo c1, Circulo c2) {
+        return (c1.radio >= c2.radio) ? c1 : c2;
+    }
 }
