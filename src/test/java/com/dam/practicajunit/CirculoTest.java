@@ -1,19 +1,41 @@
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
  */
-
 package com.dam.practicajunit;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+
 /**
  *
  * @author avril.lopezgarcia
  */
 public class CirculoTest {
-
+    
+    public CirculoTest() {
+    }
+    
+    @BeforeAll
+    public static void setUpClass() {
+    }
+    
+    @AfterAll
+    public static void tearDownClass() {
+    }
+    
+    @BeforeEach
+    public void setUp() {
+    }
+    
+    @AfterEach
+    public void tearDown() {
+    }
+    
     @Test
     void testConstructorVacio() {
         Circulo c = new Circulo();
@@ -57,4 +79,5 @@ public class CirculoTest {
         Circulo c2 = new Circulo(5.0);
         assertEquals(c2, Circulo.mayorCirculo(c1, c2));
     }
+    
 }
